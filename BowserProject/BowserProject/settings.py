@@ -60,7 +60,8 @@ ROOT_URLCONF = 'BowserProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR],
+        'DIRS': [TEMPLATE_DIR,
+                os.path.join(BASE_DIR,'userauth/templates/userauth')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,3 +131,11 @@ STATICFILES_DIR = [STATIC_DIR,]
 #custom user model
 
 AUTH_USER_MODEL = 'BowserApp.Manager'
+
+
+LOGIN_REDIRECT_URL = '/home_page'
+
+#custom filed settings
+
+WAGTAIL_USER_CREATION_FORM = 'userauth.forms.WagtilUserCreationForm'
+WAGTAIL_USER_CUSTOM_FIELDS = ['address1','address2','zip_code','date_of_birth','company']
