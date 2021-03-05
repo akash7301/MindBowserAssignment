@@ -1,0 +1,4 @@
+django==3.0.7
+django-crispy-forms
+django-allauth
+django-widget_tweaks
