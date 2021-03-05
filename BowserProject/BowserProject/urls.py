@@ -16,11 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from BowserApp import views
+from BowserApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/',include('django.contrib.auth.urls'),name='login'),
-    path('signup/',views.signup,name='signup'),
+    path('signup/',views.SignUp,name='signup'),
     path('home_page',views.home_page,name='home_page'),
+    path('add_emp',views.add_emp_view,name='add_emp'),
+    path('emp_list',views.Emp_list_view,name='emp_list'),
+    path('<int:pk>/',EmployeeDetailView.as_view(),name='emp_detail'),
+    path('delete/<int:pk>',EmployeeDeleteView.as_view(),name='emp_delete'),
+    path('update/<int:pk>',EmployeeUpdateView.as_view(),name='emp_update'),
 
 ]

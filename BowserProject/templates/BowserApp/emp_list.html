@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% extends 'BowserApp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="card">
+    <div class="card-header">
+      {{result.student}}
+    </div>
+    <div class="card-body">
+      <table id="emptable" class="table table-bordered table-sm table-hover" data-page-length="100">
+        <thead class="thead-light">
+          <tr>
+            <th>S.no.</th>
+            <th>ID</th>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Addess 1</th>
+            <th>Addess 2</th>
+            <th>Postal code</th>
+            <th>City</th>
+            <th>Date of birth</th>
+            <th>Company</th>
+            <th>Mobile No</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for emp in emp_list %}
+            <tr class="clickable-row" data-href="{% url 'emp_detail' emp.id %}">
+              <td>{{ forloop.counter }}</td>
+              <td>{{ emp.emp_id }}</td>
+              <td>{{ emp.emp_email }}</td>
+              <td>{{ emp.emp_first_name }}</td>
+              <td>{{ emp.emp_last_name }}</td>
+              <td>{{ emp.emp_address1 }}</td>
+              <td>{{ emp.emp_address2 }}</td>
+              <td>{{ emp.emp_zip_code }}</td>
+              <td>{{ emp.emp_city }}</td>
+              <td>{{ emp.emp_date_of_birth }}</td>
+              <td>{{ emp.emp_company }}</td>
+              <td>{{ emp.emp_mobile_no }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block morejs %}
+<script>
+  $('#emptable').DataTable({
+
+  });
+</script>
+{% endblock %}

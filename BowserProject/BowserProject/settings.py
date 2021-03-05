@@ -38,9 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     'crispy_forms',
-
+    'widget_tweaks',
     'BowserApp',
 ]
 
@@ -61,8 +60,7 @@ ROOT_URLCONF = 'BowserProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR,
-                os.path.join(BASE_DIR,'userauth/templates/userauth')],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,7 +141,7 @@ WAGTAIL_USER_CUSTOM_FIELDS = ['address1','address2','zip_code','date_of_birth','
 
 #authentication backend
 
-AUTHENTICATION_BACKENDS = ('EmailAuthBackend.EmailBackend')
+#AUTHENTICATION_BACKENDS = ('EmailAuthBackend.EmailBackend')
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #

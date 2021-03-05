@@ -1,0 +1,26 @@
+{% extends 'BowserApp/base.html' %}
+
+{% block title %}
+
+  {% if object %}
+    Update {{ object }}
+    {% else %}
+    Add new Employee
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+  <form  action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% include 'BowserApp/form_snippet.html' %}
+
+    {% if object %}
+      <input type="submit" value="Update Record" class="btn btn-primary">
+    {% else %}
+      <input type="submit" value="Add new Employee" class="btn btn-primary">
+    {% endif %}
+  </form>
+
+{% endblock %}

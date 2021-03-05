@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% extends 'BowserApp/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="card-header">
+  <div class="card-tools">
+    <a href="{% url 'emp_update' object.id %}" class="btn btn-tool">Edit</a>
+    <a href="{% url 'emp_delete' object.id %}" class="btn btn-tool">Delete</a>
+  </div>
+</div>
+
+<div class="row m-4">
+  <div class="col-4">
+    <div class="row mb-2">
+
+      <div class="float-right">
+        <h4>{{ object.emp_first_name }}  {{ object.emp_last_name }}</h4>
+        <h4>{{ object.emp_id }}</h4>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-sm-8">
+    <div>
+      <div class="form-group border-bottem row">
+        <label class="col">
+          <h3>Email</h3>
+        </label>
+        <div class="col">
+          {{ object.emp_email }}
+        </div>
+      </div>
+
+      <div class="form-group border-bottem row">
+        <label class="col">
+          Address 1
+        </label>
+        <div class="col">
+          {{ object.emp_address1 }}
+        </div>
+      </div>
+
+      <div class="form-group border-bottem row">
+        <label class="col">
+          Address 2
+        </label>
+        <div class="col">
+          {{ object.emp_address2 }}
+        </div>
+      </div>
+
+      <div class="form-group border-bottem row">
+        <label class="col">
+          Postal code
+        </label>
+        <div class="col">
+          {{ object.emp_zip_code }}
+        </div>
+      </div>
+
+      <div class="form-group border-bottem row">
+        <label class="col">
+          Date of birth
+        </label>
+        <div class="col">
+          {{ object.emp_date_of_birth }}
+        </div>
+      </div>
+
+      <div class="form-group border-bottem row">
+        <label class="col">
+          company
+        </label>
+        <div class="col">
+          {{ object.emp_company }}
+        </div>
+      </div>
+
+      <div class="form-group border-bottem row">
+        <label class="col">
+          Mobile No
+        </label>
+        <div class="col">
+          {{ object.emp_mobile_no }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}
