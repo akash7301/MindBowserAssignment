@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'crispy_forms',
 
     'BowserApp',
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'BowserProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': str(os.path.join(BASE_DIR, "db.sqlite3")),
     }
 }
 
@@ -139,3 +140,26 @@ LOGIN_REDIRECT_URL = '/home_page'
 
 WAGTAIL_USER_CREATION_FORM = 'userauth.forms.WagtilUserCreationForm'
 WAGTAIL_USER_CUSTOM_FIELDS = ['address1','address2','zip_code','date_of_birth','company']
+
+#authentication backend
+
+AUTHENTICATION_BACKENDS = ('EmailAuthBackend.EmailBackend')
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#
+# AUTHENTICATION_BACKENDS = (
+#             'django.contrib.auth.backends.ModelBackend',
+#
+#             'allauth.account.auth_backends.AuthenticationBackend',
+# )
+#
+# SITE_ID = 1
+#
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_SINGUP_PASSWORD_ENTER_TWISE = False
+# ACCOUNT_SESSION_REMEMBER = True
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_UNIQUE_USERNAME = False
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
