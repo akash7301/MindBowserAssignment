@@ -2,7 +2,10 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
+from django import forms
 # Create your models here.
+
+
 
 class Manager(AbstractUser):
     address1 = models.CharField(verbose_name=_("Addess line 1"),max_length=1024, blank=True,null=True)

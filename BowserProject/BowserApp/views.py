@@ -67,7 +67,6 @@ class EmployeeUpdateView(LoginRequiredMixin, UpdateView, SuccessMessageMixin):
     model = Employee
     fields = '__all__'
     sucess_message = "Recond Successfully Updated!"
-    #success_url = reverse_lazy('emp_list')
 
     def get_form(self):
         form = super(EmployeeUpdateView, self).get_form()

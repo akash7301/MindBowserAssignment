@@ -132,7 +132,9 @@ STATICFILES_DIR = [STATIC_DIR,]
 AUTH_USER_MODEL = 'BowserApp.Manager'
 
 
-LOGIN_REDIRECT_URL = '/home_page'
+LOGIN_REDIRECT_URL = ''
+LOGOUT_REDIRECT_URL = 'login'
+
 
 #custom filed settings
 
